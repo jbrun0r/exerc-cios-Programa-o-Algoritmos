@@ -8,7 +8,22 @@ Um conjunto de exercícios de Programação a serem desenvolvidos e solucionados
 Um funcionário de uma empresa recebe, anualmente, aumento salarial. Sabe-se que: 1) esse funcionário foi contratado em 2005 com salário inicial de R$ 1.000,00; 2) em 2006 ele recebeu aumento de 1,5% sobre seu salário inicial; e 3) a partir de 2007, os aumentos salariais sempre corresponderam ao dobro do percentual do ano anterior. Faça um algoritmo que determine o salário atual desse funcionário. O arquivo .c com a solução esperada é "salario_atual.c".
 
 ```c
+#include <stdio.h>
 
+int main(void) {
+	float salario = 1000, aumento = 1.5/100;
+	int i, anoIni = 2005, anoFim = 2010;
+	
+	for (i = anoIni + 1; i < anoFim; i++) {
+		salario = salario + (salario * aumento);
+		printf("Salario em %i: %.2f - aumento de %.1f\% \n", i, salario, aumento*100);
+		aumento = 2 * aumento;
+	}
+	
+	printf("Salario final: %.2f", salario);
+	
+	return 0;
+}
 ```
 
 
